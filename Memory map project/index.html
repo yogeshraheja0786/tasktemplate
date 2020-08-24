@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mustache.js Inline Method</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="mustache.js" ></script>
+    <script>
+      var dt = new Date();
+      //used to add current date to the date variable
+      // An object named particulars which fills the values of all particulars
+      var particulars = {
+        date : dt.toLocaleDateString(),
+        longitude : "28.459°N",
+        latitude : "77.026°E",
+        title : "INDIA",
+        description : "Sometimes all we need is a little text to fill up space in a description ."
+      };
+      // A function loadtemp is made in order to dynamically fill all the values of the particulars 
+      // in their respective places on the webpage on the loading of webpage.
+      function loadtemp(){
+        var date = Mustache.render("{{date}}", particulars);
+        var title = Mustache.render("{{title}}", particulars);
+        var longitude = Mustache.render("{{longitude}}", particulars);
+        var latitude = Mustache.render("{{latitude}}", particulars);
+        var description = Mustache.render("{{description}}", particulars);
+        document.getElementById('date').innerHTML = date;
+        document.getElementById('title').innerHTML = title;
+        document.getElementById('latitude').innerHTML = latitude;
+        document.getElementById('longitude').innerHTML = longitude;
+        document.getElementById('description').innerHTML = description;
+      }
+    </script>
+  </head>
+  <body onload="loadtemp()" >
+    <div>
+      <img src="test-image.png" alt="map-image">
+      <br>
+      <table>
+        <tr>
+          <td rowspan="3" class="left"><b><p id="description"></p></b></td>
+          <td class="right"><span id="title" ></span></td>
+        </tr>
+        <tr>
+          <td class="right"><span id="longitude" class="right"></span>&nbsp;/&nbsp;<span id="latitude"></span></td>
+        </tr>
+        <tr>
+          <td class="right"><b><span id="date" class="right"></span></b></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

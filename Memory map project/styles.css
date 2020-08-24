@@ -1,0 +1,31 @@
+body{
+    font-size: 14px;
+    font-family: 'AvenirLight';
+}
+img{
+    width: 500px;
+    height: 500px;
+}
+table
+{
+    width: 500px;
+    border-spacing: 0px;
+    padding: 0px;
+}
+.left{
+    text-align: left;
+    padding-right: 20%;
+}
+.right{
+    text-align: right;
+}
+#latitude{
+    color: grey;
+}
+#longitude{
+    color: grey;
+}
+@font-face {
+	font-family: 'AvenirLight';
+	src: url('AvenirLight.otf');
+}
